@@ -54,29 +54,29 @@ const RESTAURANT = {
 }
 
 app.get('/', (req, res) => {
-  res.render('home.ejs', { data: RESTAURANT })
+  res.render('home.ejs', { data: RESTAURANT, title: RESTAURANT.name })
 })
 
 app.get('/menu', (req, res) => {
-  res.render('menu.ejs', { menu: RESTAURANT.menu })
+  res.render('menu.ejs', { menu: RESTAURANT.menu, title: 'Menu' })
 })
 
 app.get('/menu/:category', (req, res) => {
   const category = req.params.category
   if (category === 'mains') {
     const mains = RESTAURANT.menu.filter(dish => dish.category === 'mains')
-    res.render('category.ejs', { data: mains, name: 'Main Dishes' })
+    res.render('category.ejs', { data: mains, title: 'Main Dishes' })
   }
   else if (category === 'desserts') {
     const desserts = RESTAURANT.menu.filter(dish => dish.category === 'desserts')
-    res.render('category.ejs', { data: desserts, name: 'Desserts' })
+    res.render('category.ejs', { data: desserts, title: 'Desserts' })
   }
   else if (category === 'sides') {
     const sides = RESTAURANT.menu.filter(dish => dish.category === 'sides')
-    res.render('category.ejs', { data: sides, name: 'Side Dishes' })
+    res.render('category.ejs', { data: sides, title: 'Side Dishes' })
   }
   else {
-    res.render('menu.ejs', { menu: RESTAURANT.menu })
+    res.render('menu.ejs', { menu: RESTAURANT.menu, title: 'Menu' })
   }
 })
 
