@@ -58,3 +58,12 @@ a {
 a:hover {
   color: rgb(0, 0, 0);
 }
+
+#home-greeting {
+  width: 70%;
+  text-align: center;
+}
+
+.home-contact {
+  font-size: .9rem;
+}
